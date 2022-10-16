@@ -3,17 +3,11 @@ import { Component } from 'react';
 
 class App extends Component {
 
-  /*   state = { texto: 'texto1' } */
+  state = { texto: 'texto1' }
 
-  /*   handlerPClick = (event) => {
-      event.preventDefault();
-      this.setState({ texto: 'texto2' });
-    } */
-
-  handlerChangeText = (event) => {
+  handlerPClick = (event) => {
     event.preventDefault();
-    const getValue = event.target.value;
-    console.log(getValue);
+    this.setState({ texto: 'texto2' });
   }
 
   render() {
