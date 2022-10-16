@@ -3,11 +3,30 @@ import { Component } from 'react';
 
 class App extends Component {
 
-  state = { texto: 'texto1' }
+  state = {
+    visita: [
+      {
+        id: 1,
+        title: 'Título 1',
+        text: 'Título 1 corpo do texto',
+      },
+      {
+        id: 2,
+        title: 'Título 2',
+        text: 'Título 2 corpo do texto',
+      },
+      {
+        id: 3,
+        title: 'Título 3',
+        text: 'Título 3 corpo do texto',
+      }
+    ]
+  }
 
-  handlerPClick = (event) => {
-    event.preventDefault();
-    this.setState({ texto: 'texto2' });
+  handlerOptionClick = (event) => {
+    const { visita } = this.state;
+    const visitaSelecionada = visita.filter(item => item.id == event.currentTarget.id);
+    console.log(visitaSelecionada);
   }
 
   render() {
@@ -20,19 +39,28 @@ class App extends Component {
               Muda Texto
             </button>
             <ul className="dropdown-menu">
-              <li><a className="dropdown-item" value='1' href="#" onClick={(e) => (this.handlerChangeText(e))}>Texto</a></li>
-              <li><a className="dropdown-item" value='2' href="#"></a></li>
-              <li><a className="dropdown-item" value='3' href="#"></a></li>
+              <li><a className="dropdown-item" id='1' href="#" onClick={this.handlerOptionClick}>Texto 1</a></li>
+              <li><a className="dropdown-item" id='2' href="#" onClick={this.handlerOptionClick}>Texto 2</a></li>
+              <li><a className="dropdown-item" id='3' href="#" onClick={this.handlerOptionClick}>Texto 3</a></li>
             </ul>
           </div>
         </div>
-        <div className='row'>
-        </div>
+
+      /* aqui vai a div */
+
       </div>
     );
 
   }
 
 }
+
+/*   
+  handlerPClick = (event) => {
+    event.preventDefault();
+    this.setState({ texto: 'texto2' });
+  }
+  */
+
 
 export default App;
